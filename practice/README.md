@@ -156,6 +156,11 @@ That address is written out **in full, every single time**, with no
 `DATA_URL` constant and no string concatenation. It is repetitive on
 purpose.
 
+Directly beneath each such cell is a second one marked `LOCAL
+ALTERNATIVE`, which reads the same file from `../datasets/` instead. It
+exists for students running the notebooks locally (§10). **Run one cell or
+the other, not both.** On Colab, always the first.
+
 **Why not a loader function.** Many tutorials begin `from sklearn.datasets
 import load_wine`, and a student who has only ever done that has never
 acquired a dataset. Real data sits somewhere specific, in a format
@@ -263,9 +268,12 @@ looks like on your screen.
 
 ## 10. Working locally instead
 
-Colab is the supported path for this course. If you cannot use it, the
-`dev-env/` folder at the root of this repository holds a local setup with
-Jupyter and the same libraries.
+Colab is the supported path for this course. If you cannot use it,
+[`dev-env/`](../dev-env/) at the root of this repository holds a local
+Docker setup with Jupyter and the same libraries; its own README has the
+three commands you need.
 
-Either way, the notebooks read their data over HTTPS from the addresses in
-§6, so a local run still needs network access to GitHub.
+Each dataset is loaded by a pair of cells and you run one of them: the
+first fetches it over HTTPS, the second — marked `LOCAL ALTERNATIVE` —
+reads the same file from the checkout. On Colab you always use the first.
+Locally either works, and the local one needs no network.
